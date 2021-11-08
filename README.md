@@ -21,7 +21,7 @@ Note Taker is a lightweight, simple online note taking application that allows a
 This application is under the MIT license.
 
 ## Mockup   
-![An mockup example of the Note Taker application](./public/assets/images/mockup.png)
+![An mockup example of the Note Taker application](./Develop/public/assets/images/mockup.png)
 
 ## Questions
 You can find me on Github: https://github.com/rhodaevangelene/
