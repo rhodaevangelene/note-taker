@@ -54,23 +54,35 @@ const renderActiveNote = () => {
   hide(saveNoteBtn);
 
   if (activeNote.id) {
-    noteTitle.setAttribute('readonly', true);
-    noteText.setAttribute('readonly', true);
+    noteTitle.setAttribute('data-id', activeNote.id);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.text;
   } else {
-    noteTitle.removeAttribute('readonly');
-    noteText.removeAttribute('readonly');
+    noteTitle.removeAttribute('data-id');
     noteTitle.value = '';
     noteText.value = '';
   }
 };
 
 const handleNoteSave = () => {
-  const newNote = {
+  let newNote;
+  let newNoteId = noteTitle.getAttribute("data-id");
+  
+  if (newNoteId) {
+    newNote = {
     title: noteTitle.value,
     text: noteText.value,
+    id: newNoteId
   };
+}
+else {
+  newNote = {
+    title: noteTitle.value,
+    text: noteText.value
+  };
+}
+
+
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
